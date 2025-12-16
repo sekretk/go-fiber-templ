@@ -21,8 +21,24 @@ func NewHandler(router fiber.Router, customLogger *zerolog.Logger) {
 }
 
 func (h *HomeHandler) home(c *fiber.Ctx) error {
-	return fiber.NewError(fiber.StatusBadRequest, "custom error")
-	// return c.SendString("Hello\n")
+	// // "{{.Count}} - users"
+	// tmpl := template.Must(template.ParseFiles("./html/page.html"))
+	// // if err != nil {
+	// // 	return fiber.NewError(fiber.StatusBadRequest, "template error")
+	// // }
+	// var tpl bytes.Buffer
+	// if err := tmpl.Execute(&tpl, data); err != nil {
+	// 	return fiber.NewError(fiber.StatusBadRequest, "data error")
+	// }
+	// c.Set(fiber.HeaderContentType, fiber.MIMETextHTML)
+	// return c.Send(tpl.Bytes())
+	// data := struct{ Count int }{Count: 1}
+	// return c.Render("page", data)
+	return c.Render("page", fiber.Map{
+		"Count":   5,
+		"IsAdmin": false,
+		"CanUse":  true,
+	})
 }
 
 func (h *HomeHandler) error(c *fiber.Ctx) error {
