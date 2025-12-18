@@ -6,6 +6,7 @@ import (
 	"boy/go-fiber-templ/pkg/logger"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/gofiber/contrib/fiberzerolog"
 	"github.com/gofiber/fiber/v2"
@@ -25,6 +26,11 @@ func main() {
 	fmt.Println("Start")
 
 	engine := html.New("./html", ".html")
+	engine.AddFuncMap(map[string]interface{}{
+		"ToUpper": func(c string) string {
+			return strings.ToUpper(c)
+		},
+	})
 
 	app := fiber.New(fiber.Config{
 		Views: engine,

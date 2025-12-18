@@ -34,10 +34,26 @@ func (h *HomeHandler) home(c *fiber.Ctx) error {
 	// return c.Send(tpl.Bytes())
 	// data := struct{ Count int }{Count: 1}
 	// return c.Render("page", data)
+
+	type User struct {
+		Name string
+		Age  int
+	}
+	users := []User{
+		{
+			Name: "John",
+			Age:  118,
+		},
+		{
+			Name: "Smith",
+			Age:  99,
+		},
+	}
 	return c.Render("page", fiber.Map{
 		"Count":   5,
 		"IsAdmin": false,
 		"CanUse":  true,
+		"users":   users,
 	})
 }
 

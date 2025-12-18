@@ -1,33 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{{ template "base" }}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    {{.Count}} - users
-    <br />
-    {{ if .IsAdmin }}
-    <p>admin!</p>
-    {{ else }}
-    <p>not admin</p>
-    {{ end }}
-    <br />
-    {{ if eq .Count 0 }}
-    <p>no users</p>
-    {{ else if lt .Count 10}}
-    <p>less then 10</p>
-    {{else}}
-    <p>many users</p>
-    {{end}}
-    <br>
-    {{ if and .IsAdmin .CanUse }}
-    <p>Admin Can</p>
-    {{end}}
-</head>
+{{ define "title"}}
+<title>Main page</title>
+{{ end }}
 
-<body>
-
-</body>
-
-</html>
+{{ define "content" }}
+<p>Page1</p>
+{{ end }}
