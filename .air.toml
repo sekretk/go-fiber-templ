@@ -2,12 +2,13 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-cmd = "go build -o ./tmp/main ./cmd"
+cmd = "templ generate && go build -o ./tmp/main ./cmd"
 bin = "./tmp/main"
 delay = 1000
 exclude_dir = ["tmp", "vendor", ".git"]
-include_ext = ["go", "mod", "sum", "html"]
+include_ext = ["go", "mod", "sum", "templ"]
 exclude_ext = ["swp", "tmp"]
+exclude_regex = ["views/.*\\.go$"] # ignore src/views/*.go
 log = "build-errors.log"
 
 [log]
