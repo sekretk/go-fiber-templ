@@ -1,0 +1,16 @@
+package components
+
+type TitleProps struct {
+	Title string
+}
+
+css titleClass() {
+	font-size: { "70px" };
+	color: { "#FFFFFF" };
+	font-weight: { "bold" };
+	margin-bottom: { "12px" };
+}
+
+templ Title(props TitleProps) {
+	<h1 class={ titleClass() }>{ props.Title }</h1>
+}

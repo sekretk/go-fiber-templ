@@ -1,0 +1,15 @@
+package views
+
+import "boy/go-fiber-templ/views/components"
+import "boy/go-fiber-templ/views/layout"
+
+templ Main() {
+	<main>
+		@layout.Header() {
+			@components.Title(components.TitleProps{
+				Title: "Find your work",
+			})
+			@components.SubTitle("Simple work search")
+		}
+	</main>
+}
