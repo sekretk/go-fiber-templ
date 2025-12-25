@@ -8,7 +8,7 @@ delay = 1000
 exclude_dir = ["tmp", "vendor", ".git"]
 include_ext = ["go", "mod", "sum", "templ"]
 exclude_ext = ["swp", "tmp"]
-exclude_regex = ["views/.*\\.go$"] # ignore src/views/*.go
+exclude_regex = ["views/.*\\.go$"]                     # ignore src/views/*.go
 log = "build-errors.log"
 
 [log]

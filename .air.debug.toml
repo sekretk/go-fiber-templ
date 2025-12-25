@@ -1,0 +1,24 @@
+root = "."
+tmp_dir = "tmp"
+
+[build]
+cmd = "templ generate && go build -o ./tmp/main2 ./cmd"
+bin = "./tmp/main2"
+delay = 1000
+exclude_dir = ["tmp", "vendor", ".git"]
+include_ext = ["go", "mod", "sum", "templ"]
+exclude_ext = ["swp", "tmp"]
+exclude_regex = ["views/.*\\.go$"]                     # ignore src/views/*.go
+log = "build-errors.log"
+
+[log]
+time = true
+
+[color]
+main = "yellow"
+watcher = "cyan"
+build = "green"
+runner = "magenta"
+
+[misc]
+clean_on_exit = true

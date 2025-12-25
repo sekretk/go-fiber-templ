@@ -1,0 +1,24 @@
+package layout
+
+type LayoutProps struct {
+	Title           string
+	MataDescription string
+}
+
+templ Layout(props LayoutProps) {
+	<!DOCTYPE html>
+	<html lang="en">
+		<head>
+			<meta charset="UTF-8"/>
+			<title>{ props.Title }</title>
+			<link rel="preconnect" href="https://fonts.googleapis.com"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+			<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+			<meta name="viewport" content={ props.MataDescription }/>
+			<link rel="stylesheet" href="/static/styles.css"/>
+		</head>
+		<body>
+			{ children... }
+		</body>
+	</html>
+}

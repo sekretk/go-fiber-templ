@@ -30,6 +30,8 @@ func main() {
 	}))
 	app.Use(recover.New())
 
+	app.Static("/static", "./static")
+
 	home.NewHandler(app, customLogger)
 
 	app.Get("/", func(c *fiber.Ctx) error {

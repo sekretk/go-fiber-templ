@@ -1,11 +1,18 @@
 package layout
 
+import "boy/go-fiber-templ/views/components"
+
 templ Menu() {
 	@MenuStyle()
 	<div class="menu">
-		<div class="menu__logo">Logo</div>
+		<div class="menu__logo">
+            <img src="/static/logo.svg"/>
+        </div>
 		<div class="menu__right">
 			<a class="menu__right-link">Sign in</a>
+            @components.LinkButton("/register"){
+                <span>Register</span>
+            }
 		</div>
 	</div>
 }
@@ -16,6 +23,8 @@ templ MenuStyle() {
             display: flex;
             justify-content: space-between;
             padding: 20px 0;
+            max-width: 1290px;
+            align-items: center;
         }
         .menu__right {
             display: flex;
