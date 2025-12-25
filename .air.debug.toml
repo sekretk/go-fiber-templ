@@ -2,8 +2,9 @@ root = "."
 tmp_dir = "tmp"
 
 [build]
-cmd = "templ generate && go build -o ./tmp/main2 ./cmd"
-bin = "./tmp/main2"
+cmd = "templ generate && go build -o ./tmp/main ./cmd"
+bin = "./tmp/main"
+full_bin = "dlv exec ./tmp/main --listen=127.0.0.1:2345 --headless=true --api-version=2 --accept-multiclient --continue --log"
 delay = 1000
 exclude_dir = ["tmp", "vendor", ".git"]
 include_ext = ["go", "mod", "sum", "templ"]
